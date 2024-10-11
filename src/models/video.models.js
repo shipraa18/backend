@@ -1,13 +1,14 @@
-import mongoose, {mongo, Schema} from "mongoose";
+import mongoose, {Schema} from "mongoose";
+import mongooseAggregatePaginate from "mongoose-aggregate-paginate-v2";
 
 const videoSchema=new Schema({
           videoFile: {
-                    type: String,
+                    type: String, //cloudinary url
                     required: true,
           },
 
           thumbnail: {
-                    type: String,
+                    type: String, //cloudinary url
                     required: true
           },
 
@@ -21,7 +22,7 @@ const videoSchema=new Schema({
           },
 
           duration: {
-                    type: Number,
+                    type: Number, 
                     required: true
           },
 
@@ -41,5 +42,8 @@ const videoSchema=new Schema({
           }
 
 },{timestamps: true});
+
+videoSchema.plugin(mongooseAggregatePaginate)
+//it makes handling paginated results from complex queries easier and more efficient!
 
 export const  Video = mongoose.model("Video", videoSchema)
