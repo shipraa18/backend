@@ -1,4 +1,11 @@
 // require(dotenv).config({path: './env'})
+// entry points
+// server starts here
+// loads environment variables using dotenv
+// calls connectDB() to estabilish MongoDB connection
+// once connected, starts express server(listening on port)
+
+
 import dotenv from "dotenv"
 import connectDB from "./db/index.js";
 import express from "express"
@@ -14,7 +21,6 @@ connectDB()
           app.listen(process.env.PORT || 8000, ()=>{
                     console.log(`Server is running at port : ${process.env.PORT} `)
           });
-
           app.on("error",(error) =>{
                     console.log("ERROR",error);
                     throw error

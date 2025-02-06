@@ -105,6 +105,8 @@ userSchema.methods.generateRefreshToken=function(){
           )
 }
 
+
+
 //isPasswordCorrect: This is an instance method defined on the userSchema
 //The pre-save middleware ensures that any time a user's password is changed, it is hashed before being stored in the database.
 //The instance method provides a way to verify that a provided password matches the stored hashed password, which is essential for authentication.
